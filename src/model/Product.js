@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoose_paginate = require('mongoose-paginate');
 
 const productSchema = mongoose.Schema({
     title: {
@@ -18,5 +19,7 @@ const productSchema = mongoose.Schema({
         default: Date.now
     }
 });
+
+productSchema.plugin(mongoose_paginate);
 
 mongoose.model('Product',productSchema);
